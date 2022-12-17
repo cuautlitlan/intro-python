@@ -54,6 +54,9 @@ def ln(x):
     return math.log(x, e)
 
 
+def division(x, y):
+    return x / y
+
 if __name__ == '__main__':
-    output = csc(5)
+    output = division(10, 2)
     print(output)

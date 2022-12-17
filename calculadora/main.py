@@ -11,6 +11,7 @@ from operadores import cot
 from operadores import ln 
 from operadores import exp
 from operadores import multiplicar_numeros
+from operadores import division
 
 def main():
     print_menu() 
@@ -86,6 +87,12 @@ def main():
         y = int(input('numero y: '))
         output = multiplicar_numeros(x, y)
         print('el resultado es: ', output) 
+
+    elif option == 13:
+        x = int(input('numero x: '))
+        y = int(input('numero y: '))
+        output = division(x, y)
+        print('el resultado es: ', output) 
     
     else:
         print('operador no valido, finalizado')
@@ -107,7 +114,7 @@ def print_menu():
     print('10 In')
     print('11 exp')
     print('12 multiplicacion')
-    
+    print('13 division')
     
 
 
