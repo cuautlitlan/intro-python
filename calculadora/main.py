@@ -14,88 +14,47 @@ from operadores import multiplicar_numeros
 from operadores import division
 
 
+valid_operators = {
+    1: sumar_numeros,
+    2: restar_numeros,
+    3: multiplicar_numeros,
+    4: division,
+    5: potencia,
+    6: cos,
+    7: sen,
+    8: tan,
+    9: csc,
+    10: sec,
+    11: cot,
+    12: ln,
+    13: exp
+}
 
 def main():
     print_menu() 
     option = int(input('ingresar opcion: '))
-    
-    if option == 1:
-        x = int(input('numero x: '))
-        y = int(input('numero y: '))
-        output = sumar_numeros(x, y) 
-        print('el resultado es: ', output) 
-    elif option == 2:
-        x = int(input('numero x: '))
-        y = int(input('numero y: '))
-        output = restar_numeros(x, y)
-        print('el resultado es: ', output) 
-    elif option == 3:
-        x = int(input('numero x: '))
-        n = int(input('numero n: '))
-        output = potencia(x, n)
-        print('el resultado es: ', output) 
-    elif option == 4:
-        x = int(input('numero x: '))
-        output = cos(x)
-        print('el resultado es: ', output)
-    elif option == 5:
-        x = int(input('numero x: '))
-        output = sen(x)
-        print('el resultado es: ', output)  
-    elif option == 6:
-        x = int(input('numero x: '))
-        output = tan(x)
-        print('el resultado es: ', output)   
-    elif option == 7:
-        x = int(input('numero x: '))
-        output = csc(x)
-        print('el resultado es: ', output)   
-    elif option == 8:
-        x = int(input('numero x: '))
-        output = sec(x)
-        print('el resultado es: ', output)
-    elif option == 9:
-        x = int(input('numero x: '))
-        output = cot(x)
-        print('el resultado es: ', output)
-    elif option == 10:
-        x = int(input('numero x: '))
-        output = ln(x)
-        print('el resultado es: ', output)
-    elif option == 11:
-        x = int(input('numero x: '))
-        output = exp(x)
-        print('el resultado es: ', output)
-    elif option == 12:
-        x = int(input('numero x: '))
-        y = int(input('numero y: '))
-        output = multiplicar_numeros(x, y)
-        print('el resultado es: ', output) 
-    elif option == 13:
-        x = int(input('numero x: '))
-        y = int(input('numero y: '))
-        output = division(x, y)
-        print('el resultado es: ', output) 
+    if option in valid_operators.keys():
+        compute_operator(option)
     else:
-        print('operador no valido, finalizado')
+        print('Operador no valido. Finalizacion de programa')
 
-    
+
+def compute_operator(option):
+    if option <= 5:
+        x = int(input('numero x: '))
+        y = int(input('numero y: '))
+        output = valid_operators[option](x, y)
+    else:
+         x = int(input('numero x: '))
+         output = valid_operators[option](x)
+    print('el resultado es: ', output)
+
+
 def print_menu():
     print('elije el operador a realizar: ')
-    print('')
-    print('1 suma de dos numeros')
-    print('2 resta de dos numeros')
-    print('3 potencia')
-    print('4 cos')
-    print('5 sen')
-    print('6 tan')
-    print('7 csc')
-    print('8 sec')
-    print('9 cot')
-    print('10 In')
-    print('11 exp')
-    print('12 multiplicacion')
-    print('13 division')
+    for key, val in valid_operators.items():
+        print(f'{key} : {val.__name__} ')
+
     
 
 if __name__ == '__main__':
