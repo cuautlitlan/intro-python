@@ -2,6 +2,7 @@
 import math
 from constantes import e
 
+
 def sumar_numeros(x, y):
     return x + y 
 
@@ -56,6 +57,7 @@ def ln(x):
 
 def division(x, y):
     return x / y
+
 
 if __name__ == '__main__':
     output = division(10, 2)
