@@ -10,6 +10,7 @@ from operadores import sec
 from operadores import cot 
 from operadores import ln 
 from operadores import exp
+from operadores import multiplicar_numeros
 
 def main():
     print_menu() 
@@ -27,6 +28,7 @@ def main():
         y = int(input('numero y: '))
         output = restar_numeros(x, y)
         print('el resultado es: ', output) 
+
 
     elif option == 3:
         x = int(input('numero x: '))
@@ -72,11 +74,18 @@ def main():
         output = ln(x)
         print('el resultado es: ', output)
     
-   
+    
+
     elif option == 11:
         x = int(input('numero x: '))
         output = exp(x)
         print('el resultado es: ', output)
+    
+    elif option == 12:
+        x = int(input('numero x: '))
+        y = int(input('numero y: '))
+        output = multiplicar_numeros(x, y)
+        print('el resultado es: ', output) 
     
     else:
         print('operador no valido, finalizado')
@@ -97,6 +106,11 @@ def print_menu():
     print('9 cot')
     print('10 In')
     print('11 exp')
+    print('12 multiplicacion')
+    
+    
+
+
 
 if __name__ == '__main__':
     main()
